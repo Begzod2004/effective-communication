@@ -1,10 +1,17 @@
 from rest_framework import serializers
-from apps.contact.models import Contact
+from apps.contact.models import Communication, CategoryProblem
 
 
-class ContactSerializer(serializers.ModelSerializer):
+class CommunicationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Contact
+        model = Communication
+        fields = '__all__'
+
+
+class CategoryProblemSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CategoryProblem
         fields = '__all__'
 

@@ -13,7 +13,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 import json
-from apps.contact.models import Contact
+from apps.contact.models import Communication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
@@ -23,32 +23,65 @@ from rest_framework.parsers import FormParser, MultiPartParser
 
 
 @api_view(['GET'])
-def Contact_api_view(request, pk=0):
+def Communication_api_view(request, pk=0):
     if request.method == 'GET':
         if pk == 0:
-            return Response(data=ContactSerializer(instance=Contact.objects.all(), many=True).data, status=200)
+            return Response(data=CommunicationSerializer(instance=Communication.objects.all(), many=True).data, status=200)
         else:
-            the_Contact = get_object_or_404(Contact, pk=pk)
-            return Response(data=ContactSerializer(instance=the_Contact).data, status=200)
+            the_Communication = get_object_or_404(Communication, pk=pk)
+            return Response(data=CommunicationSerializer(instance=the_Communication).data, status=200)
     
   
 
-class ContactListAPIView(ListAPIView):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
+class CommunicationListAPIView(ListAPIView):
+    queryset = Communication.objects.all()
+    serializer_class = CommunicationSerializer
 
 
-class ContactCreateAPIView(CreateAPIView):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
+class CommunicationCreateAPIView(CreateAPIView):
+    queryset = Communication.objects.all()
+    serializer_class = CommunicationSerializer
 
 
-class ContactUpdateAPIView(UpdateAPIView):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
+class CommunicationUpdateAPIView(UpdateAPIView):
+    queryset = Communication.objects.all()
+    serializer_class = CommunicationSerializer
 
 
-class ContactDestroyAPIView(DestroyAPIView):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
+class CommunicationDestroyAPIView(DestroyAPIView):
+    queryset = Communication.objects.all()
+    serializer_class = CommunicationSerializer
+
+
+@api_view(['GET'])
+def CategoryProblem_api_view(request, pk=0):
+    if request.method == 'GET':
+        if pk == 0:
+            return Response(data=CategoryProblemSerializer(instance=CategoryProblem.objects.all(), many=True).data, status=200)
+        else:
+            the_CategoryProblem = get_object_or_404(CategoryProblem, pk=pk)
+            return Response(data=CategoryProblemSerializer(instance=the_CategoryProblem).data, status=200)
+    
+  
+
+class CategoryProblemListAPIView(ListAPIView):
+    queryset = CategoryProblem.objects.all()
+    serializer_class = CategoryProblemSerializer
+
+
+class CategoryProblemCreateAPIView(CreateAPIView):
+    queryset = CategoryProblem.objects.all()
+    serializer_class = CategoryProblemSerializer
+
+
+class CategoryProblemUpdateAPIView(UpdateAPIView):
+    queryset = CategoryProblem.objects.all()
+    serializer_class = CategoryProblemSerializer
+
+
+class CategoryProblemDestroyAPIView(DestroyAPIView):
+    queryset = CategoryProblem.objects.all()
+    serializer_class = CategoryProblemSerializer
+
+
 
