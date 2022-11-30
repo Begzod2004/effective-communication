@@ -11,9 +11,10 @@ class CategoryProblem(models.Model):
     title = models.CharField(max_length=50, verbose_name="Nomi")
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return self.title
+
 
 class Communication(models.Model):
     CONTACT_STATUS = (

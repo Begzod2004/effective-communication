@@ -7,8 +7,6 @@ from .views import *
 
 
 urlpatterns = [
-    path('Contact-api-view/', ContactListAPIView.as_view()),
-    path('Contact-api-view/create', ContactCreateAPIView.as_view()),
-    
-
+    path('Contact/', CommunicationListAPIView.as_view()),
+    path('Contact/create', CategoryProblemCreateAPIView.as_view()),
 ]
