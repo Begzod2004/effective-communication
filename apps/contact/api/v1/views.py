@@ -42,6 +42,9 @@ class CommunicationCreateAPIView(CreateAPIView):
     queryset = Communication.objects.all()
     serializer_class = CommunicationSerializer
 
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
+
 
 class CommunicationUpdateAPIView(UpdateAPIView):
     queryset = Communication.objects.all()
