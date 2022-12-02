@@ -16,7 +16,7 @@ class CategoryProblem(models.Model):
         return self.title
 
 class Location(models.Model):
-    city = mod
+    city = models.CharField()
 
 
 class Communication(models.Model):
@@ -49,4 +49,3 @@ class Communication(models.Model):
 class CommunicationImage(models.Model):
     communication = models.ForeignKey(Communication, on_delete=models.CASCADE)
     file = models.FileField(upload_to='communications')
-    

@@ -80,5 +80,3 @@ class Account(AbstractBaseUser, PermissionsMixin):
             'access': str(refresh.access_token)
         }
         return data
-
-W
